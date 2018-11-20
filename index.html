@@ -3,7 +3,14 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Christmas E-card</title>
+
+
+
 	<style type="text/css">
+
+		#fadein {
+		display: none;
+		}
 		canvas {
 			
 			z-index: 0;
@@ -12,7 +19,6 @@
 		body {
 			margin: 0;
 		}
-
 		p {
 		z-index: 2;
 		color: red;
@@ -31,13 +37,11 @@
 		line-height: 1;
 		}
 		
-
 		#msgbody {
 		font-size: 20pt;
 		width: 750px;
 		top: 210px;;
 		}
-
 		#msgbody2 {
 		font-size: 20pt;
 		top: 405px;
@@ -47,7 +51,6 @@
 		font-size: 20pt;
 		top: 500px;
 		}
-
 		#msgbody4 {
 		font-size: 20pt;
 		top: 690px;
@@ -60,7 +63,6 @@
  		left: 50%;
 		transform: translate(-50%, -50%);
 		}
-
 		#title {
 		
 		}
@@ -69,35 +71,31 @@
 		opacity: 0;
 		}
 
+		#fadein {
+		opacity: 0;
+		}
 	</style>
 
 <script>
-
 setTimeout(function(){
   document.getElementById("sound").remove();
   
 }, 4000);
-
-
-
 function fin() {
     var i = 0;
     var el = document.getElementById("fadein");
     fadeIn(el,i);
 }
-
 function fadeIn(el,i) {
     i = i + 0.0035;
     seto(el,i);
     if (i<1){setTimeout(function(){fadeIn(el,i);}, 10);}
 }
-
 function seto(el,i) {
     el.style.opacity = i;
 }
-
-
 </script>
+
 </head>
 
 <body onload="fin();">
@@ -128,62 +126,41 @@ function seto(el,i) {
 </body>
 
 <script>
+document.getElementById("fadein").style.display = "block";
 
 setTimeout(function(){
   document.getElementById("sound").remove();
   
 }, 4000);
-
-
-
-
-
-
-
 var canvas = document.querySelector("canvas");
 console.log(canvas);
-
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
-
 var c = canvas.getContext("2d");
-
-
-
-
 var mouse = {
 	x: undefined,
 	y: undefined
 }
-
 var maxRadius = 40;
 var minRadius = 2;
-
 var colorArray = [
 	"#b7c2ce",
 	"#e1e8ef",
 	"#ebeef3",
 	"#f9fafc",
 ];
-
-
-
 window.addEventListener("mousemove", 
 	function(event) {
 	mouse.x = event.x;
 	mouse.y = event.y;
 	console.log(mouse);
 	})
-
-
 window.addEventListener("resize", function() {
 	canvas.width = window.innerWidth;
 	canvas.height = window.innerHeight;
-
 	init();
 })
 var image = document.getElementById("snowimage");
-
 function Circle(x, y, dy, radius, color) {
 	this.x = x;
 	this.y = y;
@@ -191,11 +168,9 @@ function Circle(x, y, dy, radius, color) {
 	this.radius = radius;
 	this.minRadius = radius;
 	this.color = colorArray[Math.floor(Math.random() * colorArray.length)];
-
 	this.draw = function (){
 		c.drawImage(image, this.x, this.y, this.radius, this.radius)
 	}
-
 	this.update = function() {	
 			
 			if (this.y + this.radius > innerHeight || this.y - this.radius < 0) {
@@ -203,7 +178,6 @@ function Circle(x, y, dy, radius, color) {
 			}
 	
 			this.y += this.dy;
-
 			// interactivity
 			if (mouse.x - this.x < 50 && mouse.x - this.x > -50
 			&& mouse.y - this.y < 50 && mouse.y - this.y > -50
@@ -214,20 +188,13 @@ function Circle(x, y, dy, radius, color) {
 			} else if (this.radius > this.minRadius) {
 				this.radius -= 1;
 			}
-
 			this.draw();
-
 	}
 	
 }
-
 //Creates circles and stores them in the array
-
-
 var circleArray = [];
-
 function init() {
-
 circleArray = [];
 for(var i = 0; i < 200; i++) {
 		
@@ -237,28 +204,35 @@ for(var i = 0; i < 200; i++) {
 	var dy = (Math.random()+0.3) * 2;
 	
 	circleArray.push(new Circle(x, y, dy, radius));
-
 }
-
 }
-
 function animate() {
 	requestAnimationFrame(animate);
 	c.clearRect(0, 0, innerWidth, innerHeight);
-
 	for (var i = 0; i < circleArray.length; i++) {
 	circleArray[i].update();
 	}
 	
 }
-
 init();
-
-
 animate();
-
 </script>
 </html>
 
 
 
+    © 2018 GitHub, Inc.
+    Terms
+    Privacy
+    Security
+    Status
+    Help
+
+    Contact GitHub
+    Pricing
+    API
+    Training
+    Blog
+    About
+
+Press h to open a hovercard with more details.
