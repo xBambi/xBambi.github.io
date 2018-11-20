@@ -70,6 +70,34 @@
 		}
 
 	</style>
+
+<script>
+
+setTimeout(function(){
+  document.getElementById("sound").remove();
+  
+}, 4000);
+
+
+
+function fin() {
+    var i = 0;
+    var el = document.getElementById("fadein");
+    fadeIn(el,i);
+}
+
+function fadeIn(el,i) {
+    i = i + 0.0035;
+    seto(el,i);
+    if (i<1){setTimeout(function(){fadeIn(el,i);}, 10);}
+}
+
+function seto(el,i) {
+    el.style.opacity = i;
+}
+
+
+</script>
 </head>
 
 <body onload="fin();">
@@ -105,24 +133,6 @@ setTimeout(function(){
   document.getElementById("sound").remove();
   
 }, 4000);
-
-
-
-function fin() {
-    var i = 0;
-    var el = document.getElementById("fadein");
-    fadeIn(el,i);
-}
-
-function fadeIn(el,i) {
-    i = i + 0.0035;
-    seto(el,i);
-    if (i<1){setTimeout(function(){fadeIn(el,i);}, 10);}
-}
-
-function seto(el,i) {
-    el.style.opacity = i;
-}
 
 
 
