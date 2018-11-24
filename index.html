@@ -10,6 +10,7 @@
 
 		#fadein {
 		display: none;
+		visibility: visible;
 		}
 		canvas {
 			
@@ -55,6 +56,15 @@
 		font-size: 20pt;
 		top: 690px;
 		}
+
+		#msgbodyctn {
+		position: absolute;
+		top: 30px;
+		left: 0;
+		right: 0;
+		margin-left: auto;
+		margin-right: auto;
+		}
 		
 		#bottomimage {
 		position: absolute;
@@ -74,6 +84,34 @@
 		#fadein {
 		opacity: 0;
 		}
+	
+
+		#gif {
+		z-index: 2;
+		position: absolute;
+		top: 225px;
+		left: 0;
+		right: 0;
+		margin-left: auto;
+		margin-right: auto;
+		width: 400px;
+		visibility: hidden;
+		}
+
+		#naughty {
+		z-index: 2;
+		position: absolute;
+		top: 120px;
+		left: 0;
+		right: 0;
+		margin-left: auto;
+		margin-right: auto;
+		width: 400px;
+		font-size: 20pt;
+		visibility: hidden;
+		}
+		
+
 	</style>
 
 <script>
@@ -102,8 +140,10 @@ function seto(el,i) {
 	<canvas></canvas>
 
 	<div id="fadein">
-
+	
 	<p id="title">Merry Christmas!</p>	
+
+	<div id="msgbodyctn">
 
 	<p id="msgbody">In the spirit of giving this year, <br>instead of material gifts, <br>a twenty-five dollar per-household donation <br>will be made in your name,<br> to the Izaak Walton Killam Hospital for Children (IWK) <br>in Halifax.</p>
 
@@ -112,16 +152,21 @@ function seto(el,i) {
 	<p id="msgbody3">If you would like to take part, <br>please let me know before the New Year!</p>
 
 	<p id="msgbody4">Much love and happy holiday wishes, <br>from Caitlin.</p>
+	</div>
 
-	<img id="bottomimage" src="https://i.imgur.com/QRCxy1k.png">
+	<img id="bottomimage" onclick="santa()" src="https://i.imgur.com/QRCxy1k.png">
 
 	</div>
 
+	<img id="gif" src="https://i.imgur.com/TSwrFfz.gif">
+	
 	<img id="snowimage" src="https://i.imgur.com/q0rPI9q.png" width="0">
 	
-
+	<p id="naughty">Weird things happen when you touch Santa's balls..</p>
 
  	<embed id="sound" src="https://clyp.it/yubaz5uy" autostart="false">
+
+	
 	
 </body>
 
@@ -216,5 +261,14 @@ function animate() {
 }
 init();
 animate();
+
+
+function santa() {
+console.log("working");
+document.getElementById("fadein").style.visibility = "hidden";
+document.getElementById("gif").style.visibility = "visible";
+document.getElementById("naughty").style.visibility = "visible";
+}
+
 </script>
 </html>
